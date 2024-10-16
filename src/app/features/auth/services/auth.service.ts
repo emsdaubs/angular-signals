@@ -32,9 +32,14 @@ export class AuthService {
     });
   }
 
-  async signIn(email: string, password: string): Promise<void> {
+  async signIn(email: string, password: string): Promise<boolean> {
     try {
-      await signInWithEmailAndPassword(this.auth, email, password);
+      const result =await signInWithEmailAndPassword(this.auth, email, password);
+      if(result.user!=null)
+      {
+        return true;
+      }
+      return false;
     } catch (error) {
       console.error('Sign-in error:', error);
       throw error;
@@ -52,6 +57,7 @@ export class AuthService {
 
   async signOut(): Promise<void> {
     try {
+      console.log("signing out");
       await signOut(this.auth);
     } catch (error) {
       console.error('Sign-out error:', error);

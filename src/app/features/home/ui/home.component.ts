@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { AuthService } from '../../auth/services/auth.service';
+import { User } from 'firebase/auth';
 
 @Component({
   selector: 'app-home',
@@ -8,5 +10,11 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  private currentUserSignal = signal<User | null>(null);
+  public  currentUser;
+  
+  constructor(public authService: AuthService) {
+    this.currentUser = authService.currentUser;
+  }
 
 }
