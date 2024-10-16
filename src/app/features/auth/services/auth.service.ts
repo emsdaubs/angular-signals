@@ -9,7 +9,7 @@ import {
   User 
 } from 'firebase/auth';
 import { signal, computed } from '@angular/core';
-import { environment } from '../..../../../../../environments/environment';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
