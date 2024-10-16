@@ -14,7 +14,7 @@ import { environment } from '../../../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class FirebaseAuthService {
+export class AuthService {
   private auth;
   private currentUserSignal = signal<User | null>(null);
 

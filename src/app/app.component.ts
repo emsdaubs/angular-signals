@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { LoginComponent } from './features/auth/components/login/login.component'; // Adjust the path as necessary
+import { LoginComponent } from './features/auth/ui/login/login.component'; 
 
 
 @Component({
