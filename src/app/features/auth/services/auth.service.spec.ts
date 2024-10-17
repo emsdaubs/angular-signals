@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { AuthService } from './auth.service';
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithEmailAndPassword, User } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword, User, onAuthStateChanged } from 'firebase/auth';
 
 // Mock Firebase modules
 jest.mock('firebase/app', () => ({
@@ -11,7 +11,8 @@ jest.mock('firebase/app', () => ({
 jest.mock('firebase/auth', () => ({
   getAuth: jest.fn(),
   signInWithEmailAndPassword: jest.fn(),
-  User: jest.fn()
+  User: jest.fn(),
+  onAuthStateChanged:jest.fn()
 }));
 
 describe('AuthService', () => {

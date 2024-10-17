@@ -23,11 +23,13 @@ export class AuthService {
 
   constructor() {
     // Initialize Firebase app
+    console.log(`firebase init`);
     const app = initializeApp(environment.firebaseConfig);
     this.auth = getAuth(app);
 
     // Set up auth state listener
-    onAuthStateChanged(this.auth, (user) => {
+    onAuthStateChanged(this.auth,(user) => {
+      console.log(`auth state changed user:${user}`);
       this.currentUserSignal.set(user);
     });
   }

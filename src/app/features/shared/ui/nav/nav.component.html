@@ -1,7 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    @if (isAuthenticated){
+    <a routerLink="/account" routerLinkActive="active" ariaCurrentWhenActive="page">Account</a>
+    @if (isAuthenticated()===true){
         <p>Hello {{currentUser()?.email}}</p>
         <button (click)="logout()">Logout</button>
+        
     }
+    @else{<p>Not authenticated</p>}
 </nav>
     
